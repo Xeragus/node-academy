@@ -1,0 +1,23 @@
+{
+  "name": "node-academy",
+  "version": "1.0.0",
+  "description": "Dependencies used in the Node Academy exercises",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xeragus/node-academy.git"
+  },
+  "author": "Boban Sugareski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xeragus/node-academy/issues"
+  },
+  "homepage": "https://github.com/Xeragus/node-academy#readme"
+}
