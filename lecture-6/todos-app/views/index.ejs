@@ -1,0 +1,28 @@
+<%- include('partials/header') %> 
+
+<div id="app">
+  <%- include('partials/alerts') %> 
+
+  <p>Todos:</p>
+
+  <% if (Array.isArray(todos) && todos.length) { %>
+    <ul>
+      <% todos.forEach(todo => { %>
+        <li>
+          <strong>
+            <%= todo.title %>
+          </strong> (<%= todo.description %>)<br>
+          <a href="/<%= todo.id %>">Edit</a>
+          <a href="/<%= todo.id %>/delete">Delete</a>
+        </li><br>
+        
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>Sorry man, you obviously got nothing to do with yourself!</p>
+  <% } %>
+
+  <a href="/create">Add new todo</a>
+</div>
+
+<%- include('partials/footer') %> 

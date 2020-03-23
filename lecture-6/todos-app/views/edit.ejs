@@ -1,0 +1,16 @@
+<%- include('partials/header') %> 
+
+<a href="/" class="home-btn">Home</a>
+<div id="app">
+  <%- include('partials/alerts') %> 
+  <p>Edit todo #<%= todo.id %>:</p>
+  <form action="/<%= todo.id %>"  method="post" id="create_form">
+    <label for="title">Title</label><br>
+    <input type="text" name="title" id="title" value="<%= todo.title %>"><br>
+    <label for="description">Description</label><br>
+    <input type="text" name="description" id="description" value="<%= todo.description %>"><br>
+    <button type="submit" id="submit_btn">Update</button>
+  </form>
+</div>
+    
+<%- include('partials/footer') %> 
