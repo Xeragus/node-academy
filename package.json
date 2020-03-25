@@ -2,14 +2,17 @@
   "name": "node-academy",
   "version": "1.0.0",
   "description": "Dependencies used in the Node Academy exercises",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
     "ejs": "^3.0.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.6"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon start"
   },
   "repository": {
     "type": "git",

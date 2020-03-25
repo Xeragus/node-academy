@@ -1,18 +1,39 @@
-let todos = []
+const Todo = require('../models/todo')
+      , mongoose = require('mongoose')
 
 module.exports = {
-  todo_index: (req, res) => {
-    res.render('index', { todos: todos })
+  todo_index: async (req, res) => {
+    try {
+      const todos = await Todo.find()
+      // 2 sintaksi za handle-anje na promisi: 1. then catch, 2. async await
+
+      res.render('index', {
+        error: false,
+        message: 'All todos found in database',
+        todos: todos
+      })
+    } catch (error) {
+      res.render('index', {
+        error: true,
+        message: 'Error happened: ' + error.message,
+        todos: []
+      })
+    }
   },
-  todo_create: (req, res) => {
+  todo_create: async (req, res) => {
     res.render('create')
   },
-  todo_post_create: (req, res) => {
+  todo_post_create: async (req, res) => {
     try {
-      req.body.id = todos.length + 1
+      const todo = new Todo({
+        _id: new mongoose.Types.ObjectId(),
+        title: req.body.title,
+        description: req.body.description
+      })
 
-      todos.push(req.body)
-
+      await todo.save()
+      todos = await Todo.find().exec()
+      
       res.render('index', { 
         error: false,
         message: 'Cheers! You added a new responsibility for yourself.',
@@ -25,11 +46,10 @@ module.exports = {
       })
     }
   },
-  todo_edit: (req, res) => {
+  todo_edit: async (req, res) => {
     try {
-      const todo = todos.find((todo) => {
-        return todo.id == req.params.id
-      })
+      const todo = await Todo.findOne({ _id: req.params.id })
+      console.log(todo)
 
       if (!todo) res.send(404)
 
@@ -41,14 +61,16 @@ module.exports = {
       })
     }
   },
-  todo_post_edit: (req, res) => {
-    const todo = todos.find((todo) => {
-      return todo.id == req.params.id
-    })
-    
+  todo_post_edit: async (req, res) => {
     try {
-      todo.title = req.body.title
-      todo.description = req.body.description
+      await Todo.update({ _id: req.params.id }, {
+        title: req.body.title,
+        description: req.body.description
+      })
+
+      
+
+      const todos = await Todo.find()
 
       res.render('index', {
         error: false,
@@ -56,6 +78,8 @@ module.exports = {
         todos: todos
       })
     } catch (error) {
+      const todo = await Todo.findOne({ _id: req.params.id })
+
       res.render('edit', {
         error: true,
         message: 'Error happened: ' + error.message,
@@ -63,11 +87,10 @@ module.exports = {
       })
     }
   },
-  todo_delete: (req, res) => {
+  todo_delete: async (req, res) => {
     try {
-      todos = todos.filter((todo) => {
-        return todo.id != req.params.id
-      })
+      await Todo.remove({ _id: req.params.id })
+      const todos = await Todo.find()
 
       res.render('index', {
         error: false,
@@ -75,6 +98,8 @@ module.exports = {
         todos: todos
       })
     } catch (error) {
+      const todos = await Todo.find()
+
       res.render('index', {
         error: true,
         message: 'Error happened: ' + error.message,
