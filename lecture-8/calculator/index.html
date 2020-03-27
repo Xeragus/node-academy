@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalcApp</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="calculator">
+    <div id="calculator_wrapper">
+      <form action="">
+        <input id="text_view">
+      </form>
+      <table>
+        <tr>
+          <td><input class="button" onclick="refresh()" type="button" value="C"></td>
+          <td><input class="button" onclick="back()" type="button" value="<"></td>
+          <td><input class="button" onclick="insert('/')" type="button" value="/"></td>
+          <td><input class="button" onclick="insert('*')" type="button" value="x"></td>
+        </tr>
+        <tr>
+          <td><input class="button" onclick="insert(7)" type="button" value="7"></td>
+          <td><input class="button" onclick="insert(8)" type="button" value="8"></td>
+          <td><input class="button" onclick="insert(9)" type="button" value="9"></td>
+          <td><input class="button" onclick="insert('-')" type="button" value="-"></td>
+        </tr>
+        <tr>
+          <td><input class="button" onclick="insert(4)" type="button" value="4"></td>
+          <td><input class="button" onclick="insert(5)" type="button" value="5"></td>
+          <td><input class="button" onclick="insert(6)" type="button" value="6"></td>
+          <td><input class="button" onclick="insert('+')" type="button" value="+"></td>
+        </tr>
+        <tr>
+          <td><input class="button" onclick="insert(1)" type="button" value="1"></td>
+          <td><input class="button" onclick="insert(2)" type="button" value="2"></td>
+          <td><input class="button" onclick="insert(3)" type="button" value="3"></td>
+          <td><input class="button" onclick="calculate()" type="button" value="="></td>
+        </tr>
+        <tr>
+          <td><input class="button" onclick="insert(0)" type="button" value="0"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
