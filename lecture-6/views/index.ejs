@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todos App</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <header>
+      <h1>Todos</h1>
+    </header>
+    <div id="app">
+      <ul>
+        <% todos.forEach(todo => { %>
+          <li><strong><%= todo.title %></strong> (<%= todo.description %>)</li>
+          <a href="/edit/<%= todo.id %>">Edit</a>
+          <a href="/delete/<%= todo.id %>">Delete</a>
+        <% }) %>
+      </ul>
+      <a href="/create">Add new todo</a>
+    </div>
+    <footer>
+      Authored with love from Bobz
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+header {
+  padding: 0 0 20px 0;
+}
+
+footer {
+  padding: 20px 0 0 0;
+}
+
+#app {
+  padding: 20px;
+  border: 1px solid #eeeeee;
+  width: 400px;
+}
+
+#create_form input {
+  padding: 5px;
+  margin: 10px 0;
+  width: 100%;
+}
+
+#create_form button {
+  width: 100px!important;
+  background-color: #00B7FF;
+  color: #ffffff;
+  padding: 10px;
+}
