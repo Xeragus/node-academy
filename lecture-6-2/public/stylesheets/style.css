@@ -33,3 +33,15 @@ footer {
   color: #ffffff;
   padding: 10px;
 }
+
+.success-alert {
+  padding: 5px 10px;
+  background-color: green;
+  color: #ffffff;
+}
+
+.error-alert {
+  padding: 5px 10px;
+  background-color: #bc1f1f;
+  color: #ffffff;
+}

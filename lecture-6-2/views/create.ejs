@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Todos App</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <header>
-      <h1>Todos</h1>
-    </header>
-    <div id="app">
+<%- include('partials/header') %>
+<%- include('partials/alerts') %>
       <p>Add a todo:</p>
       <form action="/create" method="post" id="create_form">
         <label for="title">Title</label>
@@ -17,9 +8,4 @@
         <input type="text" name="description" id="description">
         <button type="submit">Add</button>
       </form>
-    </div>
-    <footer>
-      Authored with love from Bobz
-    </footer>
-  </body>
-</html>
+<%- include('partials/footer') %> 

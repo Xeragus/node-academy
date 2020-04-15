@@ -1,0 +1,11 @@
+<% if (typeof error !== 'undefined' && typeof message !== 'undefined' && !error) { %>
+  <div class="success-alert">
+    <p><%= message %></p>
+  </div>
+<% } %>
+
+<% if (typeof error !== 'undefined' && typeof message !== 'undefined' && error) { %>
+  <div class="error-alert">
+    <p><%= message %></p>
+  </div>
+<% } %>
